@@ -104,6 +104,7 @@ border-bottom: hidden;
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
+    
    
 }
 
@@ -149,6 +150,7 @@ border-bottom: hidden;
         text-align: center;
     }
     .navigation-item{
+      flex-grow: 1;
       padding: 3px;
     }
    
@@ -320,8 +322,10 @@ margin: 10px;
   <div class="playground">
     <style>
       .sidebar-container{
+        display: flex;
+        flex-direction: column;
         width: 200px;
-  margin: 10px;
+  position: absolute;
 border: 1px solid black;
 border-top: hidden;
 background-color: white;
@@ -337,6 +341,7 @@ font-weight: bold;
   padding: 5px;
 }
 .sidebar-menu-section{
+  flex-grow: 4;
   width: auto;
   height: 200px;
   padding: 5px;
@@ -353,7 +358,6 @@ font-weight: bold;
 .sidebar-menu-ite{
   padding: 10px;
 }
-
     </style>
 
     <div class="sidebar-container">
