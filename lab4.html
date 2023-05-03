@@ -36,9 +36,10 @@
     
     <style>
 .menu-container {
+  width: fit-content;
     display: flex;
     flex-direction: column;
-    width: 100px;
+  
 background-color: #b8b8b8;
 margin: 5px;
 border-bottom: 1px solid black;
@@ -50,6 +51,9 @@ border-bottom: 1px solid black;
 border: 1px solid black;
 border-bottom: hidden;
    
+}
+.menu-item  :last-child{
+border-bottom: unset;
 }
 
     </style>
@@ -96,18 +100,24 @@ border-bottom: hidden;
         }
        
 .header-container{
-  margin: 10px;
-  width: 500px;
+
     border: 1px solid black;
     display: flex;
-    flex-direction: row;
+    
     justify-content: space-between;
     align-items: center;
-    margin-top: 5px;
+  
     
    
 }
-
+.head-content-left{
+  display: flex;
+}
+.header-content{
+  text-align: center;
+  flex-grow: 1;
+  align-items: center;
+}
 
     </style>
 
@@ -329,19 +339,21 @@ margin: 10px;
 border: 1px solid black;
 border-top: hidden;
 background-color: white;
-
+height: 300px;
 
 }
 .sidebar-profile-section{
   font-size: large;
 font-weight: bold;
   border: 1px solid black;
+
+
   border-left: hidden;
   border-right: hidden;
   padding: 5px;
 }
 .sidebar-menu-section{
-  flex-grow: 4;
+  
   width: auto;
   height: 200px;
   padding: 5px;
@@ -355,8 +367,9 @@ font-weight: bold;
   padding: 5px;
   font-size: small;
 }
-.sidebar-menu-ite{
+.sidebar-menu-item{
   padding: 10px;
+  flex-grow: 4;
 }
     </style>
 
