@@ -168,25 +168,33 @@ for(var j = 0 ; j < CARD_NUMBER.length ; j++){
   
 var isFaceDown = Math.random() < 0.5
 
-var card ={value: [CARD_TYPE[i],CARD_NUMBER[j]], isFaceDown :isFaceDown}
+var card ={ value : [ [i],CARD_NUMBER[j]],isFaceDown : isFaceDown}
 cardlist.push(card)
 }
   }
  
 }
 cardcontain()
-
+function random(max) {
+        return parseInt(Math.random() * max) % max
+        }
 
 
 function shuffle(array) {//stackoverflow
-   for(var i = array.length -1 ;i >0 ; i++){
-var j = Math.floor(Math.random()*(i+1))
+        let currentIndex = array.length, randomIndex;
 
-let temp = array[i];
-    array[i] =array[j];
-    array[j] = temp;
-   }
-   return 
+        // While there remain elements to shuffle.
+        while (currentIndex != 0) {
+
+            // Pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        }
+        return array;
     }
 
 
