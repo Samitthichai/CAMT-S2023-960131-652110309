@@ -21,10 +21,10 @@
   </body>
 
   <script>
-    /* open crudcrud.com and then replace ID and resource name. */
+   /* open crudcrud.com and then replace ID and resource name. */
 // BEGIN: configuration zone
-var CRUD_CURD_ID = "30de7b611afa4d03ad5f96ef4cb77d8e";
-var CRUD_CURD_RESOURCE_NAME = "helloworld";
+var CRUD_CURD_ID = "01e55e20e1a94627b94686204b13b1af";
+var CRUD_CURD_RESOURCE_NAME = "todo";
 var CURD_CURD_API_ENDPOINT =
   "https://crudcrud.com/api/" + CRUD_CURD_ID + "/" + CRUD_CURD_RESOURCE_NAME;
 // END:configuration zone
@@ -45,7 +45,7 @@ function htmlToElem(html) {
 // END: utility function zone
 
 // BEGIN: API fetching zone
-async function loadTodoList(afterLoadFunction) {
+function loadTodoList(afterLoadFunction) {
   var headers = new Headers();
   headers.append("Content-Type", "application/json");
 
@@ -54,7 +54,7 @@ async function loadTodoList(afterLoadFunction) {
     headers: headers
   };
 
-  await fetch(CURD_CURD_API_ENDPOINT, requestOptions).then(function (response) {
+  fetch(CURD_CURD_API_ENDPOINT, requestOptions).then(function (response) {
     response.json().then(function (data) {
       afterLoadFunction(data);
     });
@@ -80,23 +80,10 @@ function addNewTodoItem(value, afterAddFunction) {
   });
 }
 
-
-function deleteTOdoItemid(id , afterAddFunction){
-    var headers = new Headers();
-  headers.append("Content-Type", "application/json");
-
-  var requestOptions = {
-    method: "DELETE",
-    headers: headers
-  };
-
-  fetch(CURD_CURD_API_ENDPOINT + "/" +id, requestOptions).then(function (response) {
-    response.json().then(function (data) {
-      afterAddFunction(data);
-    });
-  });
+function deleteTodoItem(){
+  var headers = new Headers();
+  headers.append("");
 }
-
 
 // END: API fetching zone
 
@@ -140,6 +127,7 @@ window.onload = function () {
   refreshTodoList();
 };
 
+// END: UI Control and logic zone
 // END: UI Control and logic zone
   </script>
 </html>
