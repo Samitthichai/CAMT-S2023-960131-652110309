@@ -23,7 +23,7 @@
   <script>
    /* open crudcrud.com and then replace ID and resource name. */
 // BEGIN: configuration zone
-var CRUD_CURD_ID = "01e55e20e1a94627b94686204b13b1af";
+var CRUD_CURD_ID = "61bb792abeeb4d99b6a0f89ca90da647";
 var CRUD_CURD_RESOURCE_NAME = "todo";
 var CURD_CURD_API_ENDPOINT =
   "https://crudcrud.com/api/" + CRUD_CURD_ID + "/" + CRUD_CURD_RESOURCE_NAME;
@@ -80,9 +80,22 @@ function addNewTodoItem(value, afterAddFunction) {
   });
 }
 
-function deleteTodoItem(){
+function deleteTodoItem(itemId, afterDeleteFunction) {
   var headers = new Headers();
-  headers.append("");
+  headers.append("Content-Type", "application/json");
+
+  var requestOptions = {
+    method: "DELETE",
+    headers: headers
+  };
+
+  var deleteUrl = CURD_CURD_API_ENDPOINT + "/" + itemId;
+
+  fetch(deleteUrl, requestOptions).then(function (response) {
+   response.json().then(function (data) {
+      afterAddFunction(data);
+    });
+  });
 }
 
 // END: API fetching zone
